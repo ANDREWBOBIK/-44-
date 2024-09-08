@@ -1,0 +1,46 @@
+def process_text(text):
+    # Обмежуємо текст до 100 слів
+    words = text.split()[:100]
+    processed_text = " ".join(words)
+
+    #Коновалов Андрій використовув (№4,№6,№3)
+
+    # Використовуємо різні функції для обробки рядків
+
+    # 1. Замінюємо всі входження слова "Python" на "Пайтон"
+    processed_text = processed_text.replace("Python", "Пайтон")
+
+    # 2. Робимо всі букви малими
+    processed_text = processed_text.lower()
+
+    # 3. Кількість входжень слова "пайтон"
+    count_paiton = processed_text.count("пайтон")
+
+    # 4. Перша літера кожного слова стає великою
+    processed_text = processed_text.title()
+
+    # 5. Видаляємо зайві пробіли з початку і кінця тексту
+    processed_text = processed_text.strip()
+
+    # 6. Перевіряємо, чи починається текст зі слова "Привіт"
+    starts_with_hello = processed_text.startswith("Привіт")
+
+    # 7. Довжина тексту
+    text_length = len(processed_text)
+
+    # Повертаємо оброблений текст та додаткову інформацію
+    return processed_text, count_paiton, starts_with_hello, text_length
+
+
+# Тестування коду
+text = """
+  Привіт  Python є однією з найпопулярніших мов програмування. Python використовується для розробки веб-додатків, 
+    аналізу даних, автоматизації та багато чого іншого. Python - це мова програмування, яку легко вивчити.
+"""
+processed_text, count_paiton, starts_with_hello, text_length = process_text(text)
+
+# Виведення результатів
+print("Оброблений текст:", processed_text)
+print("Кількість входжень слова 'Пайтон':", count_paiton)
+print("Чи починається текст зі слова 'Привіт':", starts_with_hello)
+print("Довжина тексту:", text_length)
